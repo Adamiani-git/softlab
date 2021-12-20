@@ -2,4 +2,4 @@ function reverse(num) {
     console.log( parseFloat(num.toString().split('').reverse().join('')) * Math.sign(num))
 }
 
-reverse(123)
+reverse(1230)
