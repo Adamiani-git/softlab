@@ -1,12 +1,12 @@
 function qm(value) {
     
-    if (isNaN(value) && value.toString().includes('?')) {
+    if (typeof(value) === 'string' && value.toString().includes('?')) {
         console.log('true')
-    } else if (isNaN(value) && !value.toString().includes('?')) {
+    } else if (typeof(value) === 'string' && !value.toString().includes('?')) {
         console.log( "false")
     } else {
         console.error("ვავა!");
     }
 }
 
-qm('a?')
+qm(15)

@@ -1,5 +1,5 @@
 function isString(value) {
-    console.log(isNaN(value) ? "String" : false);
+    console.log(typeof(value) === 'string' && typeof(value) );
 }
 
 isString('Text')

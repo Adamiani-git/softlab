@@ -9,4 +9,7 @@ const rectangles = [{
      {
     id: 5, width: 10, height: 10, color: 'red' }
     ];
- rectangles.filter(g => g.color === 'green' || g.color === 'red').map((r) => `${r.id} : `+ r.width * r.height).forEach((r) => console.log( r))
+ rectangles
+    .filter(g => g.color === 'green' || g.color === 'red')
+    .map((r) => `${r.id} : `+ r.width * r.height)
+    .forEach((r) => console.log( r))
