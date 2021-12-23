@@ -1,8 +1,6 @@
 {
   "dependencies": {
     "axios": "^0.24.0",
-    "chai": "^4.3.4",
-    "mocha": "^9.1.3",
     "yarn": "^1.22.17"
   },
   "name": "softlab",
@@ -21,7 +19,10 @@
   "directories": {
     "test": "test"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3"
+  },
   "scripts": {
     "test": "mocha test"
   },
