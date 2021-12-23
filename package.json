@@ -8,7 +8,22 @@
   "name": "softlab",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/Adamiani-git/softlab.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adamiani-git/softlab.git"
+  },
   "license": "MIT",
-  "author": "Adamiani"
+  "author": "Adamiani",
+  "bugs": {
+    "url": "https://github.com/Adamiani-git/softlab/issues"
+  },
+  "homepage": "https://github.com/Adamiani-git/softlab#readme",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha test"
+  },
+  "description": ""
 }

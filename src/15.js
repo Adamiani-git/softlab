@@ -1,12 +1,15 @@
 function qm(value) {
-    
-    if (typeof(value) === 'string' && value.toString().includes('?')) {
-        console.log('true')
-    } else if (typeof(value) === 'string' && !value.toString().includes('?')) {
-        console.log( "false")
+
+    if (typeof (value) === 'string' && value.toString().includes('?')) {
+        console.log('true');
+        return true;
+    } else if (typeof (value) === 'string' && !value.toString().includes('?')) {
+        console.log("false");
+        return false;
     } else {
         console.error("ვავა!");
+        return 'ვავა!';
     }
-}
+};
 
-qm(15)
+module.exports = { qm }
