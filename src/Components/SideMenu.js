@@ -5,11 +5,11 @@ export default class SideMenu extends React.Component {
     render() {
 
         return (
-            <div class="col-md-3 left ps-0 bg-light row mx-0 align-content-start">
-                <div class="col-6 col-md-12">
+            <div className="col-md-3 left ps-0 bg-light row mx-0 align-content-start">
+                <div className="col-6 col-md-12">
 
                     <nav>
-                        <ul class="navigation text-center">
+                        <ul className="navigation text-center">
                             <li><a href="/">Home</a></li>
 
                             <li><a href="#">MyMarket</a> </li>
@@ -23,9 +23,9 @@ export default class SideMenu extends React.Component {
                         </ul>
                     </nav>
                 </div>
-                <div class="col-6 col-md-12">
+                <div className="col-6 col-md-12">
 
-                    <div class="underNav">
+                    <div className="underNav">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore
                         et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -33,7 +33,7 @@ export default class SideMenu extends React.Component {
                         aliquip ex ea commodo consequat.
                     </div>
                 </div>
-                <hr class="d-md-none" />
+                <hr className="d-md-none" />
             </div>
         )
     }

@@ -3,7 +3,7 @@ import React from 'react'
 export default class Content extends React.Component{
     render(){
         return (
-            <div class="col-md-9 bg-light" style={{textAlign:'justify'}}>
+            <div className="col-md-9 bg-light" style={{textAlign:'justify'}}>
                 <h1>
                     Where does it come froms?
                 </h1>
