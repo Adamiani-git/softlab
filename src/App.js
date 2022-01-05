@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <div className='container'>
         <div className='row'>
-          
+
               <Header />
 
               <SideMenu />
@@ -17,8 +17,7 @@ function App() {
               <Content />
 
               <Footer />
-
-          <div className='col-12'></div>
+              
         </div>
       </div>
     </div>
