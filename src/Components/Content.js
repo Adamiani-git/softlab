@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default class Content extends React.Component{
-    render(){
+export default class Content extends React.Component {
+    render() {
         return (
-            <div className="col-md-9 bg-light" style={{textAlign:'justify'}}>
+            <div className="col-md-9 bg-light" style={{ textAlign: 'justify' }}>
                 <h1>
                     Where does it come froms?
                 </h1>
-                <br/>
+                <br />
                 <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
                     classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
                     professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
