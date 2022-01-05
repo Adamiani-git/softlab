@@ -10,15 +10,15 @@ export default class SideMenu extends React.Component {
 
                     <nav>
                         <ul class="navigation text-center">
-                            <li>Home</li>
+                            <li><a href="/">Home</a></li>
 
-                            <li><a href="mymarket.html">MyMarket</a> </li>
+                            <li><a href="#">MyMarket</a> </li>
 
-                            <li><a href="js.html"> JavaScript</a></li>
+                            <li><a href="#"> JavaScript</a></li>
 
-                            <li>Boring Things</li>
+                            <li><a href="#">Boring Things</a></li>
 
-                            <li><a href="form.html">Form</a></li>
+                            <li><a href="#">Form</a></li>
 
                         </ul>
                     </nav>
