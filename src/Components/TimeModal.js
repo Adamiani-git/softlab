@@ -10,7 +10,7 @@ function TimeModal({ setHours, setMinutes, setSeconds, setstaticTime }) {
         setHours(setH)
         setMinutes(setM)
         setSeconds(setS)
-        setstaticTime(setH * 60 * 60 + setM * 60 + setS)
+        setstaticTime(+setH * 60 * 60 + +setM * 60 + +setS)
     }
 
 

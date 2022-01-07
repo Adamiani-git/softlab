@@ -41,6 +41,7 @@ function Timer(props) {
 
     const interval = +seconds + +minutes * 60 + +hours * 60 * 60
 
+
     return (
         <>
             <div className='text-dark col-8' style={{ fontSize: 165 }}>
