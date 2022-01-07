@@ -15,12 +15,13 @@ function Timer(props) {
     const [startPause, setStartPause] = useState(false)
 
     useEffect(() => {
-        let myInterval = setInterval(() => {
+        const myInterval = setInterval(() => {
             if (startPause && seconds > 0) {
                 setSeconds(seconds - 1);
             }
-            if (startPause && seconds === 0) {
-                if (startPause && minutes === 0) {
+            if (startPause && seconds === 0 && minutes >= 0) {
+                if (minutes <= 0) {
+                    setStartPause(false)
                     clearInterval(myInterval)
                 } else {
                     setMinutes(minutes - 1);
