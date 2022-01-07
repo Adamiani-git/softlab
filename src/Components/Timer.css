@@ -5,8 +5,13 @@ i{
     background-color: darkgray;
     height: 30px;
     padding: 0;
+    overflow: hidden;
 }
 .loadLine{
     background-color: dodgerblue;
     height: 30px;
 }
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+  }

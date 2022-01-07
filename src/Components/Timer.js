@@ -18,10 +18,14 @@ function Timer(props) {
             if (startPause && seconds > 0) {
                 setSeconds(seconds - 1);
             }
-            if (startPause && seconds === 0 && minutes >= 0) {
-                if (minutes <= 0) {
+            if (startPause && seconds === 0 && minutes >= 0 && hours >= 0) {
+                if (minutes <= 0 && hours <= 0) {
                     setStartPause(false)
                     clearInterval(myInterval)
+                } else if (hours > 0) {
+                    setHours(hours - 1)
+                    setMinutes(59)
+                    setSeconds(59)
                 } else {
                     setMinutes(minutes - 1);
                     setSeconds(59);
@@ -47,7 +51,9 @@ function Timer(props) {
         <>
             <div className='text-dark col-8' style={{ fontSize: 165 }}>
                 {
-                    <span> {hours < 10 ? `0${hours}` : hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</span>
+                    <span>
+                        {hours < 10 ? `0${hours}` : hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                    </span>
                 }
 
             </div>
@@ -64,12 +70,12 @@ function Timer(props) {
                 </button>
             </div>
             <hr />
-            <div className="col-12">
-                <button data-bs-toggle="modal" data-bs-target="#timeModal" className='btn' disabled={startPause ? 'disabled' : null}>
+            <div className="col-12 mb-2">
+                <button data-bs-toggle="modal" data-bs-target="#timeModal" className='btn border-light rounded' disabled={startPause ? 'disabled' : null}>
                     <span className='fw-bold fs-3 text-info'>Change Time</span>
                 </button>
             </div>
-            <div className="col-12" className='loadWrap'>
+            <div className="col-12" className='loadWrap rounded'>
                 <div className="loadLine" style={{ width: `${interval * 100 / staticTime}%` }}></div>
             </div>
             <TimeModal setHours={setHours} setMinutes={setMinutes} setSeconds={setSeconds} setstaticTime={setstaticTime} />
