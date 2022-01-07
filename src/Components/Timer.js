@@ -37,6 +37,7 @@ function Timer(props) {
         setHours(0)
         setMinutes(2)
         setSeconds(0)
+        setstaticTime(120)
     }
 
     const interval = +seconds + +minutes * 60 + +hours * 60 * 60
@@ -66,7 +67,6 @@ function Timer(props) {
             <div className="col-12">
                 <button data-bs-toggle="modal" data-bs-target="#timeModal" className='btn' disabled={startPause ? 'disabled' : null}>
                     Change Time
-                    {staticTime}
                 </button>
             </div>
             <div className="col-12" className='loadWrap'>

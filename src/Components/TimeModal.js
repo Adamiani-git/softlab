@@ -25,21 +25,21 @@ function TimeModal({ setHours, setMinutes, setSeconds, setstaticTime }) {
                     <div className="modal-body row">
                         <div className="col-3">
                             <label className='fw-bold'>
-                                <input type="number" className='form-control' name='Hrs' defaultValue={0} onChange={e => setsetH(e.target.value)} />
+                                <input type="number" min={0} className='form-control' name='Hrs' defaultValue={0} onChange={e => setsetH(e.target.value)} />
                                 Hrs
                             </label>
                         </div>
                         :
                         <div className="col-3">
                             <label className='fw-bold'>
-                                <input type="number" className='form-control' name='Sec' defaultValue={2} onChange={e => setsetM(e.target.value)} />
+                                <input type="number" min={0} className='form-control' name='Sec' defaultValue={2} onChange={e => setsetM(e.target.value)} />
                                 Min
                             </label>
                         </div>
                         :
                         <div className="col-3">
                             <label className='fw-bold'>
-                                <input type="number" className='form-control' name='Sec' defaultValue={0} onChange={e => setsetS(e.target.value)} />
+                                <input type="number" min={0} max={59} className='form-control' name='Sec' defaultValue={0} onChange={e => setsetS(e.target.value)} />
                                 Sec
                             </label>
                         </div>
