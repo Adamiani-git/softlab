@@ -63,10 +63,10 @@ function Timer(props) {
                     <i className="bi bi-arrow-counterclockwise" ></i>
                 </button>
             </div>
-
+            <hr />
             <div className="col-12">
                 <button data-bs-toggle="modal" data-bs-target="#timeModal" className='btn' disabled={startPause ? 'disabled' : null}>
-                    Change Time
+                    <span className='fw-bold fs-3 text-info'>Change Time</span>
                 </button>
             </div>
             <div className="col-12" className='loadWrap'>
