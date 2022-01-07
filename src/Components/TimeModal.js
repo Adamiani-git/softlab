@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function TimeModal({ setHours, setMinutes, setSeconds }) {
+function TimeModal({ setHours, setMinutes, setSeconds, setstaticTime }) {
 
     const [setH, setsetH] = useState(0)
     const [setM, setsetM] = useState(2)
@@ -10,6 +10,7 @@ function TimeModal({ setHours, setMinutes, setSeconds }) {
         setHours(setH)
         setMinutes(setM)
         setSeconds(setS)
+        setstaticTime(setH * 60 * 60 + setM * 60 + setS)
     }
 
 

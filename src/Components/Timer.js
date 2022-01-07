@@ -8,9 +8,8 @@ function Timer(props) {
     const [minutes, setMinutes] = useState(2);
     const [seconds, setSeconds] = useState(0);
 
-    const [setH, setsetH] = useState(0)
-    const [setM, setsetM] = useState(2)
-    const [setS, setsetS] = useState(0)
+
+    const [staticTime, setstaticTime] = useState(120)
 
     const [startPause, setStartPause] = useState(false)
 
@@ -40,6 +39,8 @@ function Timer(props) {
         setSeconds(0)
     }
 
+    const interval = +seconds + +minutes * 60 + +hours * 60 * 60
+
     return (
         <>
             <div className='text-dark col-8' style={{ fontSize: 165 }}>
@@ -64,9 +65,13 @@ function Timer(props) {
             <div className="col-12">
                 <button data-bs-toggle="modal" data-bs-target="#timeModal" className='btn' disabled={startPause ? 'disabled' : null}>
                     Change Time
+                    {staticTime}
                 </button>
             </div>
-            <TimeModal setHours={setHours} setMinutes={setMinutes} setSeconds={setSeconds} />
+            <div className="col-12" className='loadWrap'>
+                <div className="loadLine" style={{ width: `${interval * 100 / staticTime}%` }}></div>
+            </div>
+            <TimeModal setHours={setHours} setMinutes={setMinutes} setSeconds={setSeconds} setstaticTime={setstaticTime} />
         </>
     );
 }
