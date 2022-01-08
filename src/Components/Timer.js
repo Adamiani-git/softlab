@@ -49,7 +49,7 @@ function Timer(props) {
 
     return (
         <>
-            <div className='text-dark col-8' style={{ fontSize: 165 }}>
+            <div className='text-dark col-lg-8' style={{ fontSize: 165 }}>
                 {
                     <span>
                         {hours < 10 ? `0${hours}` : hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
