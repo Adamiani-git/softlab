@@ -32,7 +32,7 @@ function TimeModal({ setHours, setMinutes, setSeconds, setstaticTime }) {
                         :
                         <div className="col-3">
                             <label className='fw-bold'>
-                                <input type="number" min={0} className='form-control' name='Sec' defaultValue={2} onChange={e => setsetM(e.target.value)} />
+                                <input type="number" min={0} max={59} className='form-control' name='Sec' defaultValue={2} onChange={e => setsetM(e.target.value)} />
                                 Min
                             </label>
                         </div>
