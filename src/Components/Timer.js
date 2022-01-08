@@ -71,7 +71,7 @@ function Timer(props) {
             </div>
             <hr />
             <div className="col-12 mb-2">
-                <button data-bs-toggle="modal" data-bs-target="#timeModal" className='btn border-light rounded' disabled={startPause ? 'disabled' : null}>
+                <button disabled={startPause ? 'disabled' : null} data-bs-toggle={startPause ? null : 'modal'} data-bs-target="#timeModal" className='btn border-light rounded' >
                     <span className='fw-bold fs-3 text-info'>Change Time</span>
                 </button>
             </div>
