@@ -22,7 +22,7 @@ function Timer(props) {
                 if (minutes <= 0 && hours <= 0) {
                     setStartPause(false)
                     clearInterval(myInterval)
-                } else if (hours > 0) {
+                } else if (hours > 0 && minutes <= 0) {
                     setHours(hours - 1)
                     setMinutes(59)
                     setSeconds(59)
@@ -37,12 +37,12 @@ function Timer(props) {
         };
     });
 
-    function resetTime(params) {
-        setHours(0)
-        setMinutes(2)
-        setSeconds(0)
-        setstaticTime(120)
+    function resetTime() {
+        setHours(Math.round(staticTime / 3600))
+        setMinutes(Math.round(staticTime % 3600 / 60))
+        setSeconds((staticTime % 3600) % 60)
     }
+    console.log(staticTime);
 
     const interval = +seconds + +minutes * 60 + +hours * 60 * 60
 
