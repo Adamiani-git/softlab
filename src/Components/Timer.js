@@ -42,7 +42,7 @@ function Timer(props) {
         setMinutes(Math.round(staticTime % 3600 / 60))
         setSeconds((staticTime % 3600) % 60)
     }
-    console.log(staticTime);
+
 
     const interval = +seconds + +minutes * 60 + +hours * 60 * 60
 
