@@ -4,44 +4,54 @@ import './Timer.css'
 
 
 function Timer(props) {
-    const [hours, setHours] = useState(0);
-    const [minutes, setMinutes] = useState(2);
-    const [seconds, setSeconds] = useState(0);
-
 
     const [staticTime, setstaticTime] = useState(120)
+    const [timeInSeconds, settimeInSeconds] = useState(staticTime)
+
+    const [hours, setHours] = useState();
+    const [minutes, setMinutes] = useState();
+    const [seconds, setSeconds] = useState();
+
+    const displayTime = () => {
+        setHours(Math.floor(timeInSeconds / 3600))
+        setMinutes(Math.floor(timeInSeconds % 3600 / 60))
+        setSeconds((timeInSeconds % 3600) % 60)
+    }
+
+
+    useEffect(() => {
+        displayTime()
+    }, [])
+
 
     const [startPause, setStartPause] = useState(false)
 
+
     useEffect(() => {
         const myInterval = setInterval(() => {
-            if (startPause && seconds > 0) {
-                setSeconds(seconds - 1);
+            if (startPause && timeInSeconds > 0) {
+                settimeInSeconds(timeInSeconds - 1);
+                
+            }else {
+                setStartPause(false)
+                clearInterval(myInterval)
             }
-            if (startPause && seconds === 0 && minutes >= 0 && hours >= 0) {
-                if (minutes <= 0 && hours <= 0) {
-                    setStartPause(false)
-                    clearInterval(myInterval)
-                } else if (hours > 0 && minutes <= 0) {
-                    setHours(hours - 1)
-                    setMinutes(59)
-                    setSeconds(59)
-                } else {
-                    setMinutes(minutes - 1);
-                    setSeconds(59);
-                }
-            }
+
         }, 1000)
         return () => {
             clearInterval(myInterval);
         };
-    });
+    }, [startPause, seconds]);
+
+    useEffect(() => {
+        displayTime()
+    }, [timeInSeconds])
 
     function resetTime() {
-        setHours(Math.round(staticTime / 3600))
-        setMinutes(Math.round(staticTime % 3600 / 60))
-        setSeconds((staticTime % 3600) % 60)
+        settimeInSeconds(staticTime)
+        displayTime()
     }
+ 
 
 
     const interval = +seconds + +minutes * 60 + +hours * 60 * 60
@@ -78,7 +88,7 @@ function Timer(props) {
             <div className="col-12" className='loadWrap rounded'>
                 <div className="loadLine" style={{ width: `${interval * 100 / staticTime}%` }}></div>
             </div>
-            <TimeModal setHours={setHours} setMinutes={setMinutes} setSeconds={setSeconds} setstaticTime={setstaticTime} />
+            <TimeModal setHours={setHours} setMinutes={setMinutes} setSeconds={setSeconds} setstaticTime={setstaticTime} settimeInSeconds={settimeInSeconds} />
         </>
     );
 }

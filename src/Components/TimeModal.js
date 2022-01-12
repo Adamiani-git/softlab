@@ -1,16 +1,14 @@
 import { useState } from 'react';
 
-function TimeModal({ setHours, setMinutes, setSeconds, setstaticTime }) {
+function TimeModal({ setHours, setMinutes, setSeconds, setstaticTime, settimeInSeconds }) {
 
-    const [setH, setsetH] = useState(0)
-    const [setM, setsetM] = useState(2)
-    const [setS, setsetS] = useState(0)
+    const [setH, setsetH] = useState()
+    const [setM, setsetM] = useState()
+    const [setS, setsetS] = useState()
 
     function changeHandler(params) {
-        setHours(setH)
-        setMinutes(setM)
-        setSeconds(setS)
         setstaticTime(+setH * 60 * 60 + +setM * 60 + +setS)
+        settimeInSeconds(+setH * 60 * 60 + +setM * 60 + +setS)
     }
 
 
