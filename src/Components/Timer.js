@@ -31,8 +31,8 @@ function Timer(props) {
         const myInterval = setInterval(() => {
             if (startPause && timeInSeconds > 0) {
                 settimeInSeconds(timeInSeconds - 1);
-                
-            }else {
+
+            } else {
                 setStartPause(false)
                 clearInterval(myInterval)
             }
@@ -51,10 +51,7 @@ function Timer(props) {
         settimeInSeconds(staticTime)
         displayTime()
     }
- 
 
-
-    const interval = +seconds + +minutes * 60 + +hours * 60 * 60
 
 
     return (
@@ -86,7 +83,7 @@ function Timer(props) {
                 </button>
             </div>
             <div className="col-12" className='loadWrap rounded'>
-                <div className="loadLine" style={{ width: `${interval * 100 / staticTime}%` }}></div>
+                <div className="loadLine" style={{ width: `${timeInSeconds * 100 / staticTime}%` }}></div>
             </div>
             <TimeModal setHours={setHours} setMinutes={setMinutes} setSeconds={setSeconds} setstaticTime={setstaticTime} settimeInSeconds={settimeInSeconds} />
         </>
