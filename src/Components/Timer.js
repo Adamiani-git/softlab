@@ -53,7 +53,6 @@ function Timer(props) {
     }
 
 
-
     return (
         <>
             <div className='text-dark col-lg-8' style={{ fontSize: 165 }}>
