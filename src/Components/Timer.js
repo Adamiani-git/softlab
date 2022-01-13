@@ -63,14 +63,14 @@ function Timer(props) {
             </div>
             <div className="col-2">
                 <button className='btn btn-success rounded-circle px-3 mb-5' onClick={() => setStartPause(!startPause)}>
-                    {startPause ? <i className="bi bi-pause" ></i> : <i className="bi bi-caret-right"></i>}
+                    {startPause ? <i className="bi bi-pause" /> : <i className="bi bi-caret-right"/>}
                 </button>
             </div>
             <div className="col-2">
                 <button className='btn btn-primary rounded-circle px-3 mb-5' disabled={startPause ? 'disabled' : null}
                     onClick={resetTime}
                 >
-                    <i className="bi bi-arrow-counterclockwise" ></i>
+                    <i className="bi bi-arrow-counterclockwise" />
                 </button>
             </div>
             <hr />
