@@ -12,19 +12,20 @@ function Timer(props) {
     const [minutes, setMinutes] = useState();
     const [seconds, setSeconds] = useState();
 
+    const [startPause, setStartPause] = useState(false)
+
     const displayTime = () => {
         setHours(Math.floor(timeInSeconds / 3600))
         setMinutes(Math.floor(timeInSeconds % 3600 / 60))
         setSeconds((timeInSeconds % 3600) % 60)
     }
 
-
+    
     useEffect(() => {
         displayTime()
-    }, [])
+    }, [timeInSeconds])
 
 
-    const [startPause, setStartPause] = useState(false)
 
 
     useEffect(() => {
@@ -41,11 +42,8 @@ function Timer(props) {
         return () => {
             clearInterval(myInterval);
         };
-    }, [startPause, seconds]);
+    }, [startPause, timeInSeconds]);
 
-    useEffect(() => {
-        displayTime()
-    }, [timeInSeconds])
 
     function resetTime() {
         settimeInSeconds(staticTime)
@@ -81,7 +79,7 @@ function Timer(props) {
                     <span className='fw-bold fs-3 text-info'>Change Time</span>
                 </button>
             </div>
-            <div className="col-12" className='loadWrap rounded'>
+            <div className="col-12 loadWrap rounded" >
                 <div className="loadLine" style={{ width: `${timeInSeconds * 100 / staticTime}%` }}></div>
             </div>
             <TimeModal setHours={setHours} setMinutes={setMinutes} setSeconds={setSeconds} setstaticTime={setstaticTime} settimeInSeconds={settimeInSeconds} />
