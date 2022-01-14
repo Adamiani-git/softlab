@@ -20,7 +20,7 @@ function Timer(props) {
         setSeconds((timeInSeconds % 3600) % 60)
     }
 
-    
+
     useEffect(() => {
         displayTime()
     }, [timeInSeconds])
@@ -63,7 +63,7 @@ function Timer(props) {
             </div>
             <div className="col-2">
                 <button className='btn btn-success rounded-circle px-3 mb-5' onClick={() => setStartPause(!startPause)}>
-                    {startPause ? <i className="bi bi-pause" /> : <i className="bi bi-caret-right"/>}
+                    {startPause ? <i className="bi bi-pause" /> : <i className="bi bi-caret-right" />}
                 </button>
             </div>
             <div className="col-2">
