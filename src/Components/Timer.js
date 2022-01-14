@@ -4,47 +4,51 @@ import './Timer.css'
 
 
 function Timer(props) {
-    const [hours, setHours] = useState(0);
-    const [minutes, setMinutes] = useState(2);
-    const [seconds, setSeconds] = useState(0);
-
 
     const [staticTime, setstaticTime] = useState(120)
+    const [timeInSeconds, settimeInSeconds] = useState(staticTime)
+
+    const [hours, setHours] = useState();
+    const [minutes, setMinutes] = useState();
+    const [seconds, setSeconds] = useState();
 
     const [startPause, setStartPause] = useState(false)
 
+    const displayTime = () => {
+        setHours(Math.floor(timeInSeconds / 3600))
+        setMinutes(Math.floor(timeInSeconds % 3600 / 60))
+        setSeconds((timeInSeconds % 3600) % 60)
+    }
+
+    
+    useEffect(() => {
+        displayTime()
+    }, [timeInSeconds])
+
+
+
+
     useEffect(() => {
         const myInterval = setInterval(() => {
-            if (startPause && seconds > 0) {
-                setSeconds(seconds - 1);
+            if (startPause && timeInSeconds > 0) {
+                settimeInSeconds(timeInSeconds - 1);
+
+            } else {
+                setStartPause(false)
+                clearInterval(myInterval)
             }
-            if (startPause && seconds === 0 && minutes >= 0 && hours >= 0) {
-                if (minutes <= 0 && hours <= 0) {
-                    setStartPause(false)
-                    clearInterval(myInterval)
-                } else if (hours > 0 && minutes <= 0) {
-                    setHours(hours - 1)
-                    setMinutes(59)
-                    setSeconds(59)
-                } else {
-                    setMinutes(minutes - 1);
-                    setSeconds(59);
-                }
-            }
+
         }, 1000)
         return () => {
             clearInterval(myInterval);
         };
-    });
+    }, [startPause, timeInSeconds]);
+
 
     function resetTime() {
-        setHours(Math.round(staticTime / 3600))
-        setMinutes(Math.round(staticTime % 3600 / 60))
-        setSeconds((staticTime % 3600) % 60)
+        settimeInSeconds(staticTime)
+        displayTime()
     }
-
-
-    const interval = +seconds + +minutes * 60 + +hours * 60 * 60
 
 
     return (
@@ -59,14 +63,14 @@ function Timer(props) {
             </div>
             <div className="col-2">
                 <button className='btn btn-success rounded-circle px-3 mb-5' onClick={() => setStartPause(!startPause)}>
-                    {startPause ? <i className="bi bi-pause" ></i> : <i className="bi bi-caret-right"></i>}
+                    {startPause ? <i className="bi bi-pause" /> : <i className="bi bi-caret-right"/>}
                 </button>
             </div>
             <div className="col-2">
                 <button className='btn btn-primary rounded-circle px-3 mb-5' disabled={startPause ? 'disabled' : null}
                     onClick={resetTime}
                 >
-                    <i className="bi bi-arrow-counterclockwise" ></i>
+                    <i className="bi bi-arrow-counterclockwise" />
                 </button>
             </div>
             <hr />
@@ -75,10 +79,10 @@ function Timer(props) {
                     <span className='fw-bold fs-3 text-info'>Change Time</span>
                 </button>
             </div>
-            <div className="col-12" className='loadWrap rounded'>
-                <div className="loadLine" style={{ width: `${interval * 100 / staticTime}%` }}></div>
+            <div className="col-12 loadWrap rounded" >
+                <div className="loadLine" style={{ width: `${timeInSeconds * 100 / staticTime}%` }}></div>
             </div>
-            <TimeModal setHours={setHours} setMinutes={setMinutes} setSeconds={setSeconds} setstaticTime={setstaticTime} />
+            <TimeModal setHours={setHours} setMinutes={setMinutes} setSeconds={setSeconds} setstaticTime={setstaticTime} settimeInSeconds={settimeInSeconds} />
         </>
     );
 }
