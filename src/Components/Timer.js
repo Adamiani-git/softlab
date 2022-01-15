@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PicList from './PicList';
 import TimeModal from './TimeModal';
 import './Timer.css'
 
@@ -82,6 +83,8 @@ function Timer(props) {
             <div className="col-12 loadWrap rounded" >
                 <div className="loadLine" style={{ width: `${timeInSeconds * 100 / staticTime}%` }}></div>
             </div>
+            <hr className='mt-3' />
+            <PicList />
             <TimeModal setHours={setHours} setMinutes={setMinutes} setSeconds={setSeconds} setstaticTime={setstaticTime} settimeInSeconds={settimeInSeconds} />
         </>
     );
