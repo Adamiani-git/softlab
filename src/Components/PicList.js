@@ -45,15 +45,18 @@ function PicList(props) {
             <div className="col-12 text-center fw-bold mb-3">
                 სურათები
             </div>
+
             {
                 picList.map(p => (
-                    <div key={p.id} className="col-2 m-1">
+                    <div key={p.id} className="col-sm-4 col-md-3 col-lg-2 text-center mb-3">
                         <img src={p.thumbnailUrl} alt='Pic' title={p.title} className='thumb' onClick={() => openModal(p.title, p.url)} data-bs-toggle="modal" data-bs-target="#picModal" />
                     </div>
 
 
                 ))
             }
+
+
             <PicModal t={state.title} p={state.picUrl} />
         </div>
     );
