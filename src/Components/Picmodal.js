@@ -16,7 +16,6 @@ function Picmodal({ albumId, setalbumId, lgModal, setlgModal }) {
     const getById = async () => {
         const res = await axios.get(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`)
         setimageList(res.data)
-        console.log(res.data);
     }
 
     useEffect(() => {
@@ -28,7 +27,6 @@ function Picmodal({ albumId, setalbumId, lgModal, setlgModal }) {
         setsinglemodal(true)
     }
 
-    console.log(imageList);
     return (
         // <div className="modal fade" id="picModal" tabIndex="-1" aria-labelledby="picModalLabel" aria-hidden="true">
         //     <div className="modal-dialog modal-lg">
@@ -66,10 +64,10 @@ function Picmodal({ albumId, setalbumId, lgModal, setlgModal }) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div className='row'>
+                <div className='row text-center'>
                     {
                         imageList.map(pic => (
-                            <div key={pic.id} className='col-3 p-1'>
+                            <div key={pic.id} className='col-lg-3 col-md-4 col-sm-6 p-1'>
                                 <img src={pic.thumbnailUrl} alt={pic.title}  onClick={() => singleOpen(pic.title, pic.url)}  style={{cursor:'pointer'}}/>
                             </div>
                         ))
