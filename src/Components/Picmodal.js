@@ -70,7 +70,7 @@ function Picmodal({ albumId, setalbumId, lgModal, setlgModal }) {
                     {
                         imageList.map(pic => (
                             <div key={pic.id} className='col-3 p-1'>
-                                <img src={pic.thumbnailUrl} alt={pic.title}  onClick={() => singleOpen(pic.title, pic.url)} />
+                                <img src={pic.thumbnailUrl} alt={pic.title}  onClick={() => singleOpen(pic.title, pic.url)}  style={{cursor:'pointer'}}/>
                             </div>
                         ))
 

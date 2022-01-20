@@ -47,7 +47,7 @@ function Album(props) {
                     {
                         albumList.map(a => (
                             <div key={a.id} className='col-lg-2 col-md-4 col-sm-6 text-center mb-3'>
-                                <Card onClick={() => sendToModal(a.id)} style={{ width: '100%' }}>
+                                <Card onClick={() => sendToModal(a.id)} style={{ width: '100%', cursor:'pointer' }}>
                                     <Card.Header style={{fontSize:12}}>მომხმარებელი: {a.userId}</Card.Header>
                                     <Card.Body>
                                         {a.title}
