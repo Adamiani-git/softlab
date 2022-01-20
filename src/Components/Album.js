@@ -1,6 +1,10 @@
+import { Button, Card, CardGroup } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Picmodal from './Picmodal';
+
 
 function Album(props) {
 
@@ -8,6 +12,8 @@ function Album(props) {
     const [loading, setloading] = useState(true)
 
     const [albumId, setalbumId] = useState()
+
+    const [lgModal, setlgModal] = useState(false)
 
     const getAlbum = async () => {
         const res = await axios.get('https://jsonplaceholder.typicode.com/albums')
@@ -22,6 +28,7 @@ function Album(props) {
 
     const sendToModal = (aid) => {
         setalbumId(aid)
+        setlgModal(true)
     }
 
 
@@ -36,6 +43,25 @@ function Album(props) {
     return (
         <div className='container'>
             <div className='row'>
+                <Button variant="success" >Test</Button>
+                <CardGroup>
+                    <Card>
+                        <Card.Header>
+                            test
+                        </Card.Header>
+                        <Card.Body>
+                            Body
+                        </Card.Body>
+                    </Card>
+                    <Card>
+                        <Card.Header>
+                            test
+                        </Card.Header>
+                        <Card.Body>
+                            Body
+                        </Card.Body>
+                    </Card>
+                </CardGroup>
                 {
                     albumList.map(a => (
                         <div key={a.id}
@@ -51,7 +77,7 @@ function Album(props) {
                 }
 
             </div>
-            <Picmodal albumId={albumId} />
+            <Picmodal albumId={albumId} setalbumId={setalbumId} lgModal={lgModal} setlgModal={setlgModal} />
         </div>
     );
 }
