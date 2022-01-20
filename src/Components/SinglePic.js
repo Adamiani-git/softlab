@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 
-function SinglePic({ singlemodal, setsinglemodal, title, url }) {
+function SinglePic({ singlemodal, setsinglemodal, state }) {
 
     const closeSingle = () => {
         setsinglemodal(false)
@@ -29,11 +29,11 @@ function SinglePic({ singlemodal, setsinglemodal, title, url }) {
         <Modal show={singlemodal} size='lg'>
             <Modal.Header closeButton onClick={closeSingle}>
                 <Modal.Title id="example-modal-sizes-title-lg">
-                   {title}
+                   {state.title}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className='text-center'>
-                <img src={url} alt={title} />
+                <img src={state.url} alt={state.title} />
             </Modal.Body>
         </Modal>
     );

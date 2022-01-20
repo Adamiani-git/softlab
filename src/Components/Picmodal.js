@@ -75,7 +75,7 @@ function Picmodal({ albumId, setalbumId, lgModal, setlgModal }) {
                     }
                 </div>
             </Modal.Body>
-            <SinglePic singlemodal={singlemodal} setsinglemodal={setsinglemodal} title={state.title} url={state.url} />
+            <SinglePic singlemodal={singlemodal} setsinglemodal={setsinglemodal} state={state} />
         </Modal >
 
     );
