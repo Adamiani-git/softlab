@@ -42,27 +42,23 @@ function Album(props) {
 
     return (
         <div className='container'>
-            <div className='row'>
-                <Button variant="success" >Test</Button>
-                <CardGroup>
-                    <Card>
-                        <Card.Header>
-                            test
-                        </Card.Header>
-                        <Card.Body>
-                            Body
-                        </Card.Body>
-                    </Card>
-                    <Card>
-                        <Card.Header>
-                            test
-                        </Card.Header>
-                        <Card.Body>
-                            Body
-                        </Card.Body>
-                    </Card>
+           
+                <CardGroup className="row mb-3">
+                    {
+                        albumList.map(a => (
+                            <div key={a.id} className='col-lg-2 col-md-4 col-sm-6 text-center mb-3'>
+                                <Card onClick={() => sendToModal(a.id)} style={{ width: '100%' }}>
+                                    <Card.Header style={{fontSize:12}}>მომხმარებელი: {a.userId}</Card.Header>
+                                    <Card.Body>
+                                        {a.title}
+                                    </Card.Body>
+                                </Card>
+                            </div>
+
+                        ))
+                    }
                 </CardGroup>
-                {
+                {/* {
                     albumList.map(a => (
                         <div key={a.id}
                             className='card col-lg-2 col-md-4 col-sm-6 m-1'
@@ -74,9 +70,9 @@ function Album(props) {
 
 
                     ))
-                }
+                } */}
 
-            </div>
+            
             <Picmodal albumId={albumId} setalbumId={setalbumId} lgModal={lgModal} setlgModal={setlgModal} />
         </div>
     );
