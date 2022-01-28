@@ -18,13 +18,13 @@ function Categories(props) {
 
 
     const deleteCat = (e) => {
-        axios.delete(`http://192.168.10.119:3003/categories/${e}`)
+        axios.delete(`http://localhost:3003/categories/${e}`)
             .then(() => getCat())
     }
 
 
     const getCat = async () => {
-        const res = await axios.get('http://192.168.10.119:3003/categories')
+        const res = await axios.get('http://localhost:3003/categories')
         setData(res.data)
     }
 

@@ -23,7 +23,7 @@ function Makers(props) {
     const [modalHandler, setmodalHandler] = useState(false);
 
     const getMaker = async () => {
-        const res = await axios.get('http://192.168.10.119:3003/makers')
+        const res = await axios.get('http://localhost:3003/makers')
         setdata(res.data)
     }
 
@@ -33,7 +33,7 @@ function Makers(props) {
 
 
     const deleteMaker = (e) => {
-        axios.delete(`http://192.168.10.119:3003/maker/${e}`)
+        axios.delete(`http://localhost:3003/maker/${e}`)
             .then(() => getMaker())
     }
 

@@ -10,7 +10,7 @@ function AddCategory({ modalHandler, setmodalHandler, getCat }) {
     // let newData = []
     const addCategory = (e) => {
         e.preventDefault()
-        axios.post('http://192.168.10.119:3003/categories', { parent_id: parId, category_name: catName })
+        axios.post('http://localhost:3003/categories', { parent_id: parId, category_name: catName })
             .then(setmodalHandler(false))
             .then(() => getCat())
             .catch((error) => console.log(error))

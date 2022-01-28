@@ -10,7 +10,7 @@ function Addmaker({ modalHandler, setmodalHandler, getMaker }) {
 
     const addmaker = (e) => {
         e.preventDefault()
-        axios.post('http://192.168.10.119:3003/makers', { maker_name: makerName })
+        axios.post('http://localhost:3003/makers', { maker_name: makerName })
             .then(setmodalHandler(false))
             .then(() => getMaker())
             .catch((error) => console.log(error))
