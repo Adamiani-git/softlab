@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Form, Modal, Button } from 'react-bootstrap';
+import axs from '../Helper/Axs';
 
 function Addmaker({ modalHandler, setmodalHandler, getMaker }) {
 
@@ -10,7 +11,7 @@ function Addmaker({ modalHandler, setmodalHandler, getMaker }) {
 
     const addmaker = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3003/makers', { maker_name: makerName })
+        axs.post('/makers', { maker_name: makerName })
             .then(setmodalHandler(false))
             .then(() => getMaker())
             .catch((error) => console.log(error))

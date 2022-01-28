@@ -1,17 +1,17 @@
 import axios from 'axios'
 
 const axs = axios.create({
-    baseURL: 'http://192.168.10.119:3003',
+    baseURL: 'http://192.168.10.119:3003/',
     timeout: 5 * 1000
 })
 
 axs.interceptors.request.use(function (config) {
-    config.headers['X-Text'] = 'Text';
+    // config.headers['X-Text'] = 'Text';
     return config
 })
 
 axs.interceptors.response.use(function (response) {
-    console.log(response.data)
+    // console.log(response.data)
     return response
 }, function (error) {
     if (error.response.status >= 400) {

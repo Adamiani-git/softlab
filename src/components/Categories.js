@@ -5,6 +5,8 @@ import AddCategory from './AddCategory';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
+import axs from '../Helper/Axs'
+
 
 
 
@@ -18,13 +20,13 @@ function Categories(props) {
 
 
     const deleteCat = (e) => {
-        axios.delete(`http://localhost:3003/categories/${e}`)
+        axs.delete(`/categories/${e}`)
             .then(() => getCat())
     }
 
 
     const getCat = async () => {
-        const res = await axios.get('http://localhost:3003/categories')
+        const res = await axs.get('/categories')
         setData(res.data)
     }
 
@@ -67,7 +69,7 @@ function Categories(props) {
                                 <td>{d.id}</td>
                                 <td>{d.parent_id}</td>
                                 <td>{d.category_name}</td>
-                                <td><Button onClick={() => deleteCat(d.id)} ><FontAwesomeIcon icon={faTrash} /></Button></td>
+                                <td><Button onClick={() => window.confirm('Are You sure?', 'yes') && deleteCat(d.id)} ><FontAwesomeIcon icon={faTrash} /></Button></td>
                             </tr>
                         ))
                     }

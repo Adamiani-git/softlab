@@ -4,6 +4,7 @@ import { Button, Table } from 'react-bootstrap';
 import AddMaker from './AddMaker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import axs from '../Helper/Axs';
 
 // const data = [
 //     {
@@ -23,7 +24,7 @@ function Makers(props) {
     const [modalHandler, setmodalHandler] = useState(false);
 
     const getMaker = async () => {
-        const res = await axios.get('http://localhost:3003/makers')
+        const res = await axs.get('/makers')
         setdata(res.data)
     }
 
@@ -33,7 +34,7 @@ function Makers(props) {
 
 
     const deleteMaker = (e) => {
-        axios.delete(`http://localhost:3003/maker/${e}`)
+        axs.delete(`/maker/${e}`)
             .then(() => getMaker())
     }
 

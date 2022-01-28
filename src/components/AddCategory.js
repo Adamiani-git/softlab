@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap'
+import axs from '../Helper/Axs';
 
 function AddCategory({ modalHandler, setmodalHandler, getCat }) {
 
@@ -10,7 +11,7 @@ function AddCategory({ modalHandler, setmodalHandler, getCat }) {
     // let newData = []
     const addCategory = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3003/categories', { parent_id: parId, category_name: catName })
+        axs.post('/categories', { parent_id: parId, category_name: catName })
             .then(setmodalHandler(false))
             .then(() => getCat())
             .catch((error) => console.log(error))
