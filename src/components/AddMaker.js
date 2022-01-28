@@ -1,11 +1,19 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Form, Modal, Button } from 'react-bootstrap';
 
-function AddProduct({ modalHandler, setmodalHandler }) {
+function Addmaker({ modalHandler, setmodalHandler, getMaker }) {
+
+    const [makerName, setmakerName] = useState('');
+
 
 
     const addmaker = (e) => {
         e.preventDefault()
+        axios.post('http://192.168.10.119:3003/makers', { maker_name: makerName })
+            .then(setmodalHandler(false))
+            .then(() => getMaker())
+            .catch((error) => console.log(error))
     }
 
     return (
@@ -17,9 +25,9 @@ function AddProduct({ modalHandler, setmodalHandler }) {
             <Modal.Body>
                 <Form onSubmit={addmaker}>
 
-                    <Form.Group className="mb-3" controlId="categori_name">
+                    <Form.Group className="mb-3" controlId="maker_name">
                         <Form.Label>Maker name</Form.Label>
-                        <Form.Control type="text" placeholder="category name" required />
+                        <Form.Control type="text" placeholder="maker name" required onChange={(e) => setmakerName(e.target.value)} />
                     </Form.Group>
                     <Button variant="success" type="submit">
                         Save
@@ -36,4 +44,4 @@ function AddProduct({ modalHandler, setmodalHandler }) {
     );
 }
 
-export default AddProduct;
+export default Addmaker;

@@ -2,21 +2,21 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap'
 
-function AddCategory({ modalHandler, setmodalHandler, data, setData }) {
+function AddCategory({ modalHandler, setmodalHandler, getCat }) {
 
     const [parId, setparId] = useState(0);
     const [catName, setcatName] = useState('');
 
-    let newData = []
+    // let newData = []
     const addCategory = (e) => {
         e.preventDefault()
-        // axios.post('http://localhost:5000/categories', [parId, catName]).then(
-        //     setmodalHandler(false)
-        // )
+        axios.post('http://192.168.10.119:3003/categories', { parent_id: parId, category_name: catName })
+            .then(setmodalHandler(false))
+            .then(() => getCat())
+            .catch((error) => console.log(error))
 
-        newData = [...data, { id: data.length + 1, parent_id: parId, category_name: catName }]
-        setData(newData)
-        setmodalHandler(false)
+        // newData = [...data, { id: data.length + 1, parent_id: parId, category_name: catName }]
+        // setData(newData)
 
     }
 
