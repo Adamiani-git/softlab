@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import AddCategory from './AddCategory';
