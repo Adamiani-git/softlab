@@ -6,21 +6,24 @@ import Categories from './components/Categories';
 import Makers from './components/Makers';
 import Header from './components/Header';
 import Home from './components/Home';
+import { Container } from 'react-bootstrap';
 
 
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/category' element={<Categories />} />
-          <Route path='/makers' element={<Makers />} />
+      <Container>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/category' element={<Categories />} />
+            <Route path='/makers' element={<Makers />} />
 
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+      </Container>
     </div>
   );
 }

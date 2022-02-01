@@ -74,6 +74,7 @@ function Categories(props) {
                     }
                 </tbody>
             </Table>
+
             <AddCategory modalHandler={modalHandler} setmodalHandler={setmodalHandler} getCat={getCat} />
         </div>
     );
